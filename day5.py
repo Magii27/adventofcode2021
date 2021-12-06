@@ -1,7 +1,7 @@
 f = open("datenday5", "r")
 listItems = f.read().split("\n")
 
-print("----Advent of Code Day 2----")
+print("----Advent of Code Day 5----")
 
 x1 = []
 x2 = []
