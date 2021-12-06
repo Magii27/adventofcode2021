@@ -1,7 +1,7 @@
 f = open("datenday6", "r")
 listItems = f.read().split(",")
 
-print("----Advent of Code Day 2----")
+print("----Advent of Code Day 6----")
 print("Initial state: ", ", ".join(listItems))
 listItems = list(map(int, listItems))
 
