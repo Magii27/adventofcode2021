@@ -1,7 +1,7 @@
 f = open("datenday3", "r")
 listItems = f.read().splitlines()
 
-print("----Advent of Code Day 2----")
+print("----Advent of Code Day 3----")
 
 #---- PART ONE ----#
 zero = []
