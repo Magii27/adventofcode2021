@@ -30,7 +30,6 @@ b    c  .    c  .    c  .    c  b    c
 e    f  .    f  e    .  .    f  .    f
 e    f  .    f  e    .  .    f  .    f
  gggg    ....    gggg    gggg    ....
-
   5:      6:      7:      8:      9:
  aaaa    aaaa    aaaa    aaaa    aaaa       0000
 b    .  b    .  .    c  b    c  b    c     1    2
@@ -58,10 +57,44 @@ for i  in range(len(signal_patterns)):
 print(signal_patterns)
 print(output_value)
 
+
 def get_pattern(signal_pattern, segment_list, segment_list3):
     segment_list2 = segment_list3.copy()
     to_add_index = []
     to_add_letter = []
+    sixletters = []
+    one = []
+    eight = []
+    seven = []
+    four = []
+    for item in signal_pattern:
+        #print("".join(sorted(item)))
+        if len(item) == 2:
+            one.append(item)
+        elif len(item) == 3:
+            seven.append(item)
+        elif len(item) == 4:
+            four.append(item)
+        elif len(item) == 6:
+            sixletters.append(item)
+        elif len(item) == 7:
+            eight.append(item)
+
+    print(sixletters, one, four,  seven, eight)
+
+    for letter in seven[0]:
+        if letter not in one[0]:
+            buchstabe1 = letter
+    nomatch = {}
+    nomatch2 = []
+    nomatch3 = []
+    for letter in sixletters[0]:
+        for i in range(1, 3):
+            if letter not in sixletters[i]:
+                nomatch[i] = letter
+        print(nomatch)
+
+    print("oben: ", buchstabe1)
     for i in range(0, 10):
         if i == 0:
             to_add_index.append(2)
@@ -102,14 +135,14 @@ for i in range(len(output_value)):
     vergleich = [6, 2, 5, 5, 4, 5, 6, 3, 7, 6]
     segment_list1 = segment_clear.copy()
     segment_list = get_pattern(signal_patterns[i], segment_num_part2, segment_list1)
-    print(segment_list)
+    #print(segment_list)
 
     for item_key in output_value.keys():
         hochzaehlen = ""
         for list_value in output_value[item_key]:
             #hochzaehlen = ""
             breakout = False
-            print("länge: ", len(list_value))
+            #print("länge: ", len(list_value))
             if 2 == len(list_value):
                 hochzaehlen += "1"
             elif len(list_value) == 4:
@@ -120,7 +153,7 @@ for i in range(len(output_value)):
                 hochzaehlen += "8"
                 #print(hochzaehlen)
             else:
-                print("else")
+                #print("else")
                 for key_segment in range(0, 10):
                     all_time_count = 0
                     length = (segment_list[key_segment])
@@ -129,13 +162,13 @@ for i in range(len(output_value)):
                         count = 0
                         for item_segment_letter in segment_list[key_segment]:
                             if letter_value == item_segment_letter:
-                                print("Buchstabe ist drinne: ", item_segment_letter)
+                                #print("Buchstabe ist drinne: ", item_segment_letter)
                                 count += 1
                                 segment_w = key_segment
                                 count2 += 1
                                 break
                         else:
-                            print("nicht gefunden")
+                            #print("nicht gefunden")
                             count = 0
                             count2 += 1
                             break
@@ -145,11 +178,11 @@ for i in range(len(output_value)):
                         if all_time_count == len(list_value) and count2 == len(segment_list[segment_w]):
                             #print("vor hochzaehlen: ", hochzaehlen, segment_w)
                             hochzaehlen += str(segment_w)
-                            print("hochzaehlen: ", hochzaehlen)
+                            #print("hochzaehlen: ", hochzaehlen)
                             breakout = True
                             break
                     if breakout is True:
-                        print("break")
+                        #print("break")
                         break
 
                        #print("all time count: ", all_time_count, "len: ", len(list_value))
@@ -204,7 +237,6 @@ b    c  .    c  .    c  .    c  b    c
 e    f  .    f  e    .  .    f  .    f
 e    f  .    f  e    .  .    f  .    f
  gggg    ....    gggg    gggg    ....
-
   5:      6:      7:      8:      9:
  aaaa    aaaa    aaaa    aaaa    aaaa
 b    .  b    .  .    c  b    c  b    c
